@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Inspiration from André</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="quote-wrapper">
+                <span id="quote"></span>
+                <script>
+                    $.getJSON("https://cors.io/?https://food-times.jackcoldrick.xyz/random", (data) => {
+                        $("#quote").text(data[0].quote);
+                        $("#quote").addClass("zoom");
+                    });
+                </script>
+            </div>
+            <div id="andre">
+                <img src="img/andre.png">
+            </div>
+        </div>
+    </body>
+</html>

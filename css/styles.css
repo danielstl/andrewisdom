@@ -1,0 +1,59 @@
+body {
+    background: black;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+#quote-wrapper {
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quote {
+    color: white;
+    opacity: 0;
+    font-size: 4em;
+    font-family: 'Vivaldi', 'Monotype Corsiva', 'Bradley Hand ITC', 'Comic Sans MS', cursive;
+    text-align: center;
+}
+
+.zoom {
+    animation: zoom 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#andre {
+    flex: 1;
+    animation: andre 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes andre {
+    0% {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+    100% {
+        opacity: 100;
+        transform: translateX(0);
+    }
+}
