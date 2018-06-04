@@ -22,6 +22,14 @@ body {
     text-align: center;
 }
 
+#quote::before {
+    content: '"';
+}
+
+#quote::after {
+    content: '"';
+}
+
 .zoom {
     animation: zoom 12s;
     animation-fill-mode: forwards;
