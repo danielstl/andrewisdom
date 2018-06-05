@@ -12,7 +12,7 @@
                     $.getJSON("https://food-times.jackcoldrick.xyz/random", (data) => {
                         $("#quote").text(data.quote);
                         $("#quote").addClass("zoom");
-                    }.error(() => {
+                    }).error(() => {
                         console.log("couldn't connect to andre quote api");
                         $("#quote").text("Wowee");
                         $("#quote").addClass("zoom");
