@@ -20,7 +20,11 @@
                 </script>
             </div>
             <div id="andre">
-                <img src="img/andre.png">
+                <img id="andre-img" src="img/andre.png">
+                <script>
+                    var imgs = ["andre.png", "andre2.png"];
+                    $("#andre-img").attr("src", "img/" + imgs[parseInt(Math.random() * imgs.length, 10)]);
+                </script>
             </div>
         </div>
     </body>
