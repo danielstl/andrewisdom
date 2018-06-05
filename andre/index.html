@@ -10,7 +10,7 @@
                 <span id="quote"></span>
                 <script>
                     $.getJSON("https://food-times.jackcoldrick.xyz/random", (data) => {
-                        $("#quote").text(data[0].quote);
+                        $("#quote").text(data.quote);
                         $("#quote").addClass("zoom");
                     });
                 </script>
