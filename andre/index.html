@@ -9,7 +9,7 @@
             <div id="quote-wrapper">
                 <span id="quote"></span>
                 <script>
-                    $.getJSON("https://cors.io/?https://food-times.jackcoldrick.xyz/random", (data) => {
+                    $.getJSON("https://food-times.jackcoldrick.xyz/random", (data) => {
                         $("#quote").text(data[0].quote);
                         $("#quote").addClass("zoom");
                     });
