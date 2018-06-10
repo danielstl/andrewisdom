@@ -92,7 +92,7 @@ function connectToStream(stream) {
         processor.volume = Math.max(avg, processor.volume * processor.averaging);
         
         requestAnimationFrame(() => {
-            andre.style.transform = `rotate(${-200 * Math.max(0.1, processor.volume)}deg)`; //change chin transform relative to volume
+            andre.style.transform = `rotate(${-160 * processor.volume}deg)`; //change chin transform relative to volume
         });
     }
 
