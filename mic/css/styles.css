@@ -1,5 +1,7 @@
 body {
     background: #555555;
+    display: flex;
+    justify-content: center;
 }
 
 #andre {
