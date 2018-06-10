@@ -44,12 +44,16 @@ document.onmousedown = () => {
     )
     .then(connectToStream)
     .catch((err) => {
-        alert("error: " + err);
+        alert("Error: " + err);
+
+        document.getElementsByTagName("red")[0].style.background = "green";
     });
 };
 
 function connectToStream(stream) {
     connected = true;
+
+    document.getElementsByTagName("body")[0].style.background = "green";
 
     let audioContext = new AudioContext();
 
