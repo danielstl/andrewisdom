@@ -10,11 +10,31 @@
                 $("#submit-button").on("click", () => {
                     let quoteName = $("#quote-name");
                     let quoteVal = quoteName.val();
+                    
+                    let quoteValid = true;
 
                     if (quoteVal.length === 0) {
                         alert("You must enter a quote");
                         return;
                     }
+
+                    $.getJSON("https://food-times.jackcoldrick.xyz/", data => {
+                        let quoteStripped = quoteVal.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+                        data.forEach(elem => {
+                            if (elem.quote.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"") == quoteStripped) {
+                                alert("That quote already exists in the quote database!");
+                                quoteValid = false;
+                                return;
+                            }
+                        });
+                    }).fail(() => {
+                        alert("Error connecting to the André quote API");
+                        quoteValid = false;
+                    });
+
+                    if (!quoteValid) return;
+
+                    return;
 
                     $.post("https://food-times.jackcoldrick.xyz/new", {quote: quoteVal},
                     (data, success) => {
