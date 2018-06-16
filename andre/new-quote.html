@@ -7,12 +7,24 @@
             $(document).ready(() => {
 
                 $("#submit-button").on("click", () => {
-                    let quote = $("#quote-name");
+                    let quote = $("#quote-name").val();
                     alert("clicked!" + quote);
                 });
-                
+
             });
         </script>
+        <style>
+            body {
+                display: flex;
+            }
+
+            #quote-form {
+                justify-self: center;
+                flex-basis: 80%;
+                color: white;
+            }
+            
+        </style>
     </head>
     <body>
         <div id="quote-form">
