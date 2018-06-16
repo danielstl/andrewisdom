@@ -1,36 +1,76 @@
 <html>
     <head>
         <title>Create a new quote</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             $(document).ready(() => {
 
                 $("#submit-button").on("click", () => {
-                    let quote = $("#quote-name").val();
-                    alert("clicked!" + quote);
+                    let quoteName = $("#quote-name");
+                    let quoteVal = quoteName.val();
+
+                    if (quoteVal.length === 0) {
+                        alert("You must enter a quote");
+                        return;
+                    }
+
+                    $.post("https://food-times.jackcoldrick.xyz/new", {quote: quoteVal},
+                    (data, success) => {
+                        if (success == "success") {
+                            alert("Quote submission successful!");
+                            quoteName.val("");
+                        } else {
+                            alert("Error submitting quote!");
+                            console.log(data);
+                            console.log(success);
+                        }
+                    }
+                    );
                 });
 
             });
         </script>
         <style>
-            body {
-                display: flex;
+            #quote-form {
+                font-family: 'Segoe UI', sans-serif;
+                font-size: 1.2em;
+                color: white;
+                text-align: center;
+                margin: 0 auto;
             }
 
-            #quote-form {
-                justify-self: center;
-                flex-basis: 80%;
-                color: white;
+            #quote-form > * {
+                margin: 0.6em;
             }
-            
+
+            #quote-name {
+                height: 2.4em;
+                width: 60%;
+            }
+
+            #submit-button {
+                height: 2.2em;
+            }
+
+            @media screen and (max-width: 600px) {
+                #quote-form {
+                    font-size: 2em;
+                }
+
+                #quote-name {
+                    width: 100%;
+                }
+            }
         </style>
     </head>
     <body>
         <div id="quote-form">
+            <label for="quote-name">What's the quote?</label>
+            <br/>
             <input type="text" id="quote-name"/>
-            <label for="quote-name">Quote name</label>
-
+            <br/>
             <input type="button" id="submit-button" value="Submit quote"/>
         </div>
     </body>
